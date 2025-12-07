@@ -45,6 +45,7 @@ AI Models
 gpt-4o-mini (for structured extraction)
 
 ## 📦 Project Structure
+
 rfp-management-system/
 │
 ├── backend/
