@@ -84,12 +84,8 @@ EMAIL_PASS=your_app_password_here
 
 # OpenAI API Key
 OPENAI_API_KEY=your_openai_key_here
-
-
 Then run:
-
 npm start
-
 
 Backend runs on:
 👉 http://localhost:5000
