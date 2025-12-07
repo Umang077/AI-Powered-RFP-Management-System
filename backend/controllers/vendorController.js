@@ -1,5 +1,6 @@
 const Vendor = require("../models/Vendor.js");
 
+// Add vendor         
 const addVendor = async (req, res) => {
   try {
     const vendor = await Vendor.create(req.body);
@@ -9,6 +10,7 @@ const addVendor = async (req, res) => {
   }
 };
 
+// Showing vendor after creation
 const getVendors = async (req, res) => {
   try {
     const vendors = await Vendor.find();
@@ -18,6 +20,7 @@ const getVendors = async (req, res) => {
   }
 };
 
+// deleteing vendor using delete button
 const deleteVendor = async (req, res) => {
   try {
     await Vendor.findByIdAndDelete(req.params.id);

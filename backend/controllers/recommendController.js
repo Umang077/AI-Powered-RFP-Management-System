@@ -5,16 +5,19 @@ function scoreProposal(parsed) {
   if (!parsed) return 0;
   let score = 0;
 
+  // calculates the total points for each vendor
+  // scores the highest point to cost by given the base priority as 100
   const total = parsed.totalCost || parsed.total || parsed.pricePerUnit && parsed.pricePerUnit * 1 || 0;
   if (total) {
     score += Math.max(0, 100 - (total / 1000));
   }
-
+  // delivery is given the second highest priority by given the base priority as 50
   const delivery = parsed.deliveryDays || parsed.delivery || null;
   if (delivery) {
     const days = parseInt(String(delivery).match(/\d+/)?.[0] || 999, 10);
     score += Math.max(0, 50 - days / 2);
   }
+  // warranty is given the third highest priority by given the base priority as 30
 
   const warranty = String(parsed.warranty || "");
   const wy = (warranty.match(/(\d+)/) || [])[0];
@@ -22,13 +25,13 @@ function scoreProposal(parsed) {
 
   const keys = Object.keys(parsed || {});
   if (keys.length >= 3) score += 10;
-
+  // returning total point for each vendor that is cost + delivery + warranty points
   return Math.round(score);
 }
 
 exports.recommendForRfp = async (req, res) => {
   try {
-    const { id } = req.params; // rfp id
+    const { id } = req.params;
     const rfp = await Rfp.findById(id);
     if (!rfp) return res.status(404).json({ error: "RFP not found" });
 
@@ -50,7 +53,7 @@ exports.recommendForRfp = async (req, res) => {
     // sort top -> bottom
     scored.sort((a, b) => b.score - a.score);
 
-    // Prepare prompt for AI recommendation (concise)
+    // Prepared prompt for AI recommendation (concise)
     const prompt = `
 You are a procurement advisor. Given one RFP and N proposals below, recommend the best vendor and explain briefly (3-5 lines) why.
 
@@ -83,7 +86,6 @@ Return ONLY valid JSON.
     try {
       recommendation = JSON.parse(aiOutput);
     } catch (e) {
-      // Fallback — if AI failed to return JSON, build a fallback using our scored array
       recommendation = {
         recommendedVendor: scored[0].vendorName,
         recommendedVendorId: scored[0].vendorId || null,

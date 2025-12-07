@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const { proposalDb } = require("../config/db");
 
+//Propasal Model layout that will be stored inside the Database
 const proposalSchema = new mongoose.Schema({
   rfpId: { type: String, required: true },
   vendorId: String,

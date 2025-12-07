@@ -1,6 +1,8 @@
 
 const openai = require("../config/openai");
 
+// Prompt to Parse RFP text while creating Proposal by the user in Create RPF Page
+// returns JSON format layout to be showed to the user as well stored into dtabase
 exports.parseRfpText = async (text) => {
   const prompt = `
 Convert this procurement requirement into structured JSON.
@@ -33,6 +35,9 @@ Return ONLY valid JSON. Do not include markdown, explanation, or code fences.
   }
 };
 
+// Parsing important details from the vendor reply using ai prompt
+// this extract only the relevant informtion from the reply and show parsed proposal reply from the vendor
+
 exports.parseVendorEmail = async (emailText) => {
   const prompt = `
 Extract vendor proposal details from the following email text:
@@ -59,6 +64,8 @@ Return only JSON. Do NOT include markdown.
 
   let output = response.output_text;
 
+  //removing ``` from the response that was shown while I was console logging, 
+  // so I had to remove ``` from the output
   output = output
     .replace(/```json/gi, "")
     .replace(/```/g, "")

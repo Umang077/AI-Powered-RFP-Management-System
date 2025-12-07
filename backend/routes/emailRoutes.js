@@ -12,6 +12,7 @@ router.post("/send", sendRfpToVendors);
 
 router.get("/receive", async (req, res) => {
   try {
+    // reading vendor function - using IMAP and extracting the latest unread vendor reply infortmation using AI from the replies of the vendor
     await readVendorEmails();
     res.json({ message: "Vendor emails processed" });
   } catch (err) {

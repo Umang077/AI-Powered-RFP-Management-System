@@ -9,10 +9,10 @@ const connectDB = async () => {
       maxPoolSize: 10
     });
 
-    console.log("✅ MongoDB connected");
+    console.log(" MongoDB connected");
 
   } catch (error) {
-    console.error("❌ MongoDB Error:", error);
+    console.error(" MongoDB Error:", error);
     process.exit(1);
   }
 };

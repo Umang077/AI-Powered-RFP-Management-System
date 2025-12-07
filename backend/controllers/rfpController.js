@@ -4,7 +4,7 @@ const Vendor = require("../models/Vendor");
 const { sendRfpEmail } = require("../services/emailService");
 const { parseRfpText } = require("../services/aiService");
 
-// Create RFP
+// Create RFP for RFP page
 const createRfp = async (req, res) => {
   try {
     const { text } = req.body;
@@ -25,6 +25,8 @@ const createRfp = async (req, res) => {
   }
 };
 
+// Send RFP to Vendors  
+
 const sendRfpToVendors = async (req, res) => {
   try {
     const { rfpId, vendorIds } = req.body;
@@ -37,6 +39,7 @@ const sendRfpToVendors = async (req, res) => {
     const vendors = await Vendor.find({ _id: { $in: vendorIds } });
     console.log("Vendors found:", vendors);
 
+    //for each vendor in vendors list I am sending the email with this template to vendor
     for (let vendor of vendors) {
 
       const emailBody = `
@@ -71,8 +74,8 @@ Procurement System
       console.log(`Sent RFP email to vendor: ${vendor.email}`);
     }
 
-    // Save vendors to whom RFP was sent
-    rfp.vendorsSent = vendorIds;
+    // Save vendors to whom RFP was sent under the vendorsSent array column of the database
+    rfp.vendorsSent = [...new Set([...(rfp.vendorsSent || []), ...vendorIds])];
     await rfp.save();
 
     res.json({ message: "Emails Sent Successfully" });

@@ -1,11 +1,4 @@
-// const express = require("express");
-// const { createRfp } = require("../controllers/rfpController.js");
 
-// const router = express.Router();
-
-// router.post("/create", createRfp);
-
-// module.exports = router;
 
 const express = require("express");
 const router = express.Router();
@@ -14,8 +7,10 @@ const {
   createRfp,
   sendRfpToVendors,
 } = require("../controllers/rfpController");
-
+//Create RFP Route
 router.post("/create", createRfp);
+//Create RFP Vendor Route
+
 router.post("/send", sendRfpToVendors);
 
 module.exports = router;
