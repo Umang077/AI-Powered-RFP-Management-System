@@ -1,13 +1,3 @@
-// import React from 'react';
-
-// export default function Vendors() {
-//   return (
-//     <div>
-//       <h1>Vendors</h1>
-//       <p>List of vendors (placeholder).</p>
-//     </div>
-//   );
-// }
 
 import React, { useEffect, useState } from "react";
 import api from "../api/api";

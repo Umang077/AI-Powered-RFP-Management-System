@@ -1,13 +1,4 @@
-// import React from 'react';
 
-// export default function SendRfp() {
-//   return (
-//     <div>
-//       <h1>Send RFP</h1>
-//       <p>Send RFP to selected vendors (placeholder).</p>
-//     </div>
-//   );
-// }
 
 import React, { useEffect, useState } from "react";
 import api from "../api/api";

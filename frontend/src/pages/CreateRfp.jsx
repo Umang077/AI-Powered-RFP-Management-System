@@ -1,13 +1,3 @@
-// import React from 'react';
-
-// export default function CreateRfp() {
-//   return (
-//     <div>
-//       <h1>Create RFP</h1>
-//       <p>This is the Create RFP page (placeholder).</p>
-//     </div>
-//   );
-// }
 
 import React, { useState } from "react";
 import RfpForm from "../components/RfpForm";

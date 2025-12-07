@@ -1,15 +1,3 @@
-// import React from 'react';
-
-// export default function VendorCard({ vendor = {} }) {
-//   return (
-//     <div className="vendor-card">
-//       <h3>{vendor.name || 'Vendor Name'}</h3>
-//       <p>{vendor.email || 'vendor@example.com'}</p>
-//     </div>
-//   );
-// }
-
-import React from "react";
 
 export default function VendorCard({ vendor, onDelete, onSelect, selected }) {
   return (

@@ -1,20 +1,4 @@
-// import React from 'react';
 
-// export default function RfpForm() {
-//   return (
-//     <form>
-//       <h2>RFP Form (placeholder)</h2>
-//       <div>
-//         <label>Title</label>
-//         <input name="title" />
-//       </div>
-//       <div>
-//         <label>Description</label>
-//         <textarea name="description" />
-//       </div>
-//     </form>
-//   );
-// }
 
 import React, { useState } from "react";
 
