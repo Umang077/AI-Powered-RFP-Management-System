@@ -14,4 +14,3 @@ const proposalSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("Proposal", proposalSchema);
 
-// module.exports = proposalDb.model("Proposal", proposalSchema);

@@ -20,34 +20,34 @@ const readVendorEmails = () => {
   return new Promise((resolve, reject) => {
     
     imap.once("ready", () => {
-      console.log("📬 IMAP Ready - Connected to Gmail");
+      console.log("IMAP Ready - Connected to Gmail");
       imap.openBox("INBOX", false, () => {
         imap.search(["UNSEEN"], (err, results) => {
           if (!results || results.length === 0) {
-            console.log("📭 No new vendor emails");
+            console.log("No new vendor emails");
             return resolve([]);
           }
 
-          console.log("📧 Total UNSEEN emails:", results.length);
+          console.log("Total UNSEEN emails:", results.length);
 
           // Pick only the latest unread email
           const latestEmailUid = results[results.length - 1];
-          console.log("📨 Processing only latest email UID:", latestEmailUid);
+          console.log("Processing only latest email UID:", latestEmailUid);
 
           const f = imap.fetch(latestEmailUid, { bodies: "" });
 
           f.on("message", (msg) => {
             msg.on("body", async (stream) => {
-              console.log("📨 Reading new vendor email...");
+              console.log("Reading new vendor email...");
 
               const parsed = await simpleParser(stream);
-              console.log("📜 Vendor Email Parsed Text:", parsed.text);
-              console.log("📧 From:", parsed.from.text);
+              console.log("Vendor Email Parsed Text:", parsed.text);
+              console.log("From:", parsed.from.text);
               const emailText = parsed.text?.trim();
               const from = parsed.from.text;
 
-              console.log("📨 NEW EMAIL FROM:", from);
-              console.log("📜 Email Text:", emailText);
+              console.log("NEW EMAIL FROM:", from);
+              console.log("Email Text:", emailText);
 
               try {
                 const structured = await parseVendorEmail(emailText);
@@ -65,9 +65,9 @@ const readVendorEmails = () => {
                   parsedProposal: structured
                 });
 
-                console.log("💾 Saved Proposal:", structured);
+                console.log("Saved Proposal:", structured);
               } catch (err) {
-                console.log("❌ Error parsing vendor email:", err.message);
+                console.log("Error parsing vendor email:", err.message);
               }
             });
           });

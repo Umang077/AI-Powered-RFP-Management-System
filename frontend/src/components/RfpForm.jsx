@@ -1,7 +1,5 @@
 
 
-import React, { useState } from "react";
-
 export default function RfpForm({ onCreate }) {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);

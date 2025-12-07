@@ -7,7 +7,6 @@ function scoreProposal(parsed) {
 
   const total = parsed.totalCost || parsed.total || parsed.pricePerUnit && parsed.pricePerUnit * 1 || 0;
   if (total) {
-    // cheaper is better — normalize heuristically
     score += Math.max(0, 100 - (total / 1000));
   }
 
@@ -17,12 +16,10 @@ function scoreProposal(parsed) {
     score += Math.max(0, 50 - days / 2);
   }
 
-  // warranty years
   const warranty = String(parsed.warranty || "");
   const wy = (warranty.match(/(\d+)/) || [])[0];
   if (wy) score += Math.min(30, parseInt(wy, 10) * 5);
 
-  // completeness bonus
   const keys = Object.keys(parsed || {});
   if (keys.length >= 3) score += 10;
 

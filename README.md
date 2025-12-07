@@ -140,7 +140,7 @@ POST	/api/recommend/:id/recommend	AI analyzes proposals & recommends best vendor
 ### 1. IMAP is Pull-Based
 
 Gmail does not push vendor replies automatically.
-To keep it simple and controllable, we:
+To keep it simple and controllable:
 
 ✔ Exposed an endpoint /api/emails/receive
 ✔ Added a "Fetch Vendor Replies" button on UI
