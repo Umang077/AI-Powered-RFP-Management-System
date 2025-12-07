@@ -212,8 +212,8 @@ Notable prompts or patterns used
 
 “Fix OpenAI SDK (responses.create) incompatible version error”
 
-What I learned using these tools
+What I learned using these tools:
 
-How to structure prompts for JSON-only responses
+1. How to structure prompts for JSON-only responses
 
-How to debug code related issues
+2. How to debug code related issues
