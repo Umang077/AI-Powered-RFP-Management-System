@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.943.0",
+    "@aws-sdk/s3-request-presigner": "^3.943.0",
+    "ajv": "^8.17.1",
+    "ajv-errors": "^3.0.0",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "i": "^0.3.7",
+    "imap": "^0.8.17",
+    "joi": "^18.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "mailparser": "^3.9.0",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.11",
+    "nodemon": "^3.1.11",
+    "npm": "^11.6.4",
+    "openai": "^6.9.1",
+    "rate-limiter-flexible": "^9.0.0",
+    "redis": "^5.10.0",
+    "sharp": "^0.34.5",
+    "socket.io": "^4.8.1"
+  }
+}
