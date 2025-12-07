@@ -1,5 +1,5 @@
 # AI-Powered RFP Management System
-Built for Aerchain — Full-Stack Assignment Solution
+Built Full-Stack Assignment Solution
 
 This project is an end-to-end AI-driven procurement workflow system that:
 
