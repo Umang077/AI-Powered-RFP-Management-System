@@ -70,9 +70,11 @@ cd rfp-management-system
 
 ### 2. Backend Setup
 cd backend
+
 npm install
 
 Create .env file:
+
 PORT=5000
 
 # MongoDB
@@ -182,3 +184,49 @@ And asks AI:
 “Based on these proposals, recommend the best vendor and explain why.”
 
 This gives a business-friendly summary.
+
+## 🤖 AI Tools Usage
+Which AI tools were used?
+
+ChatGPT (OpenAI GPT-4o / GPT-4o-mini)
+
+GitHub Copilot (To create project directory)
+
+
+What they were used for?
+
+Designing schema structure for RFP, Vendor, Proposal
+
+Drafting IMAP email-reading logic and debugging TLS issues
+
+Creating AI prompt templates for structured JSON extraction
+
+Fixing parsing issues (code fences, formatting, cleaning text)
+
+Designing frontend flow and offer comparison table
+
+Improving scoring logic and recommendation API
+
+Readability improvements for README and documentation
+
+Notable prompts or patterns used
+
+“Extract structured JSON from unstructured vendor email”
+
+“Fix OpenAI SDK (responses.create) incompatible version error”
+
+“Convert IMAP unread messages into proposal entries”
+
+“Create production-ready documentation for interview submission”
+
+What I learned using these tools
+
+How to structure prompts for JSON-only responses
+
+How to debug IMAP/TLS handshake issues
+
+Best practices for multi-step procurement workflows
+
+How to use AI to accelerate boilerplate but keep core logic authored manually
+
+Clear separation between AI-generated drafts and final production code
