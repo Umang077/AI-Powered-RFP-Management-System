@@ -1,7 +1,6 @@
 const { smtpTransport, imapConfig } = require("../config/email.js");
 const Imap = require("imap");
-// const { smtpTransport, imapConfig } = require("../config/email.js");
-// const Imap = require("imap");
+
 const { simpleParser } = require("mailparser");
 const Proposal = require("../models/Proposal");
 const Vendor = require("../models/Vendor");
@@ -15,39 +14,6 @@ const sendRfpEmail = (to, subject, body) => {
   });
 };
 
-// const readVendorEmails = () => {
-//   const imap = new Imap(imapConfig);
-
-//   return new Promise((resolve, reject) => {
-//     imap.once("ready", () => {
-//       imap.openBox("INBOX", false, () => {
-//         imap.search(["UNSEEN"], (err, results) => {
-//           if (!results.length) return resolve([]);
-
-//           const emails = [];
-
-//           const f = imap.fetch(results, { bodies: "" });
-
-//           f.on("message", (msg) => {
-//             msg.on("body", (stream) => {
-//               let buffer = "";
-//               stream.on("data", (chunk) => (buffer += chunk.toString("utf8")));
-//               stream.on("end", () => emails.push(buffer));
-//             });
-//           });
-
-//           f.once("end", () => {
-//             resolve(emails);
-//             imap.end();
-//           });
-//         });
-//       });
-//     });
-
-//     imap.once("error", reject);
-//     imap.connect();
-//   });
-// };
 const readVendorEmails = () => {
   const imap = new Imap(imapConfig);
 

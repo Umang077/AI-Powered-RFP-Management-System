@@ -1,13 +1,3 @@
-// const mongoose = require("mongoose");
-
-// const proposalSchema = new mongoose.Schema({
-//   rfpId: String,
-//   vendorId: String,
-//   rawEmail: String,
-//   parsedProposal: Object
-// });
-
-// module.exports = mongoose.model("Proposal", proposalSchema);
 
 const mongoose = require("mongoose");
 const { proposalDb } = require("../config/db");

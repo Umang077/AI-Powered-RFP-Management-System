@@ -9,7 +9,6 @@ const router = express.Router();
 router.post("/send", sendRfpToVendors);
 
 // Receive & parse emails
-// router.get("/receive", processEmails);
 
 router.get("/receive", async (req, res) => {
   try {

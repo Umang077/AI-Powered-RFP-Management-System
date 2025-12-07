@@ -64,32 +64,6 @@ const createRfp = async (req, res) => {
   }
 };
 
-// Send RFP to Vendors
-// const sendRfpToVendors = async (req, res) => {
-//   try {
-//     const { rfpId, vendorIds } = req.body;
-//     console.log("Sending RFP ID:", rfpId, "to Vendors:", vendorIds);
-//     const rfp = await Rfp.findById(rfpId);
-//     console.log("RFP found:", rfp);
-//     const vendors = await Vendor.find({ _id: { $in: vendorIds } });
-//     console.log("Vendors found:", vendors);
-
-//     for (let vendor of vendors) {
-//       await sendRfpEmail(
-//         vendor.email,
-//         "New RFP Invitation",
-//         JSON.stringify(rfp.structuredData, null, 2)
-//       );
-//     }
-
-//     rfp.vendorsSent = vendorIds;
-//     await rfp.save();
-
-//     res.json({ message: "Emails Sent" });
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// };
 const sendRfpToVendors = async (req, res) => {
   try {
     const { rfpId, vendorIds } = req.body;
@@ -104,7 +78,6 @@ const sendRfpToVendors = async (req, res) => {
 
     for (let vendor of vendors) {
 
-      // ⭐ YOUR NEW EMAIL BODY HERE
       const emailBody = `
 RFP ID: ${rfp._id}
 
