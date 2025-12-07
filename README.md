@@ -17,7 +17,7 @@ Compares proposals and recommends the best vendor
 
 This submission follows the complete requirements of the Aerchain SDE assignment.
 
-## 🔧 Tech Stack
+## Tech Stack
 Frontend
 
 React.js
@@ -44,7 +44,7 @@ AI Models
 
 gpt-4o-mini (for structured extraction)
 
-## 📦 Project Structure
+## Project Structure
 
 rfp-management-system/
 │
@@ -64,7 +64,7 @@ rfp-management-system/
 ├── .env.example
 └── README.md
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 ### 1. Clone the Repository
 git clone https://github.com/yourusername/rfp-management-system.git
 cd rfp-management-system
@@ -91,7 +91,7 @@ Then run:
 npm start
 
 Backend runs on:
-👉 http://localhost:5000
+http://localhost:5000
 
 ### 3. Frontend Setup
 cd frontend
@@ -100,9 +100,9 @@ npm run dev
 
 
 Frontend runs on:
-👉 http://localhost:5173
+http://localhost:5173
 
-## ✨ How to Configure Email (VERY IMPORTANT)
+## How to Configure Email (VERY IMPORTANT)
 Gmail Requirements
 
 Turn ON IMAP
@@ -110,14 +110,14 @@ Turn ON IMAP
 Use an App Password (NOT regular Gmail password)
 
 Generate app password here:
-👉 https://myaccount.google.com/apppasswords
+https://myaccount.google.com/apppasswords
 
 Copy that into .env as:
 
 EMAIL_USER=yourgmail@gmail.com
 EMAIL_PASS=generated_app_password
 
-## 🔍 API Documentation
+## API Documentation
 ### RFP Endpoints
 Method	Route	Description
 POST	/api/rfp/create	Create structured RFP using AI
@@ -136,15 +136,15 @@ GET	/api/emails/receive	Reads inbox → AI parses → saves proposals
 ### Recommendation Endpoints
 Method	Route	Description
 POST	/api/recommend/:id/recommend	AI analyzes proposals & recommends best vendor
-## 🧠 Design Decisions
+## Design Decisions
 ### 1. IMAP is Pull-Based
 
 Gmail does not push vendor replies automatically.
 To keep it simple and controllable:
 
-✔ Exposed an endpoint /api/emails/receive
-✔ Added a "Fetch Vendor Replies" button on UI
-✔ Reduced complexity while meeting assignment requirements
+Exposed an endpoint /api/emails/receive
+Added a "Fetch Vendor Replies" button on UI
+Reduced complexity while meeting assignment requirements
 
 Optional for production: cron job / IMAP IDLE.
 
@@ -186,7 +186,7 @@ And asks AI:
 
 This gives a business-friendly summary.
 
-## 🤖 AI Tools Usage
+## AI Tools Usage
 Which AI tools were used?
 
 ChatGPT (OpenAI GPT-4o / GPT-4o-mini)
@@ -198,13 +198,9 @@ What they were used for?
 
 Designing schema structure for RFP, Vendor, Proposal
 
-Drafting IMAP email-reading logic and debugging TLS issues
-
 Creating AI prompt templates for structured JSON extraction
 
 Fixing parsing issues (code fences, formatting, cleaning text)
-
-Designing frontend flow and offer comparison table
 
 Improving scoring logic and recommendation API
 
@@ -216,18 +212,8 @@ Notable prompts or patterns used
 
 “Fix OpenAI SDK (responses.create) incompatible version error”
 
-“Convert IMAP unread messages into proposal entries”
-
-“Create production-ready documentation for interview submission”
-
 What I learned using these tools
 
 How to structure prompts for JSON-only responses
 
-How to debug IMAP/TLS handshake issues
-
-Best practices for multi-step procurement workflows
-
-How to use AI to accelerate boilerplate but keep core logic authored manually
-
-Clear separation between AI-generated drafts and final production code
+How to debug code related issues
