@@ -1,5 +1,5 @@
 # AI-Powered RFP Management System
-Built Full-Stack Assignment Solution
+Built Full-Stack Solution
 
 This project is an end-to-end AI-driven procurement workflow system that:
 
