@@ -8,7 +8,7 @@ export default function Proposals() {
   const [loading, setLoading] = useState(false);
   const [fetchingReplies, setFetchingReplies] = useState(false);
 
-  // Load proposals from DB
+  // Load proposals from DB on button click
   const loadProposals = async () => {
     if (!rfpId.trim()) return alert("Enter RFP ID");
     setLoading(true);
@@ -23,12 +23,12 @@ export default function Proposals() {
     }
   };
 
-  // Fetch latest unread vendor reply using IMAP → parse with AI → save to DB
+  // Fetch latest unread vendor reply using IMAP then parse with AI and then save to DB
   const fetchVendorReplies = async () => {
     setFetchingReplies(true);
     try {
-      await api.get("/emails/receive");        // Trigger backend IMAP + parsing
-      await loadProposals();                   // Reload proposals after new ones saved
+      await api.get("/emails/receive");        // trigger backend IMAP + parsing api
+      await loadProposals();                   // reload proposals after new ones saved
       alert("Checked inbox for new vendor replies!");
     } catch (err) {
       console.error(err);
@@ -38,6 +38,7 @@ export default function Proposals() {
     }
   };
 
+  //Basic UI Structure
   return (
     <div style={{ maxWidth: 900, margin: "auto", fontFamily: "Inter, sans-serif" }}>
       <div className="card" style={{ padding: 16 }}>

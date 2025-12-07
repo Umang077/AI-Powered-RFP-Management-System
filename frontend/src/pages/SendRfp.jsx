@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import api from "../api/api";
 import VendorCard from "../components/VendorCard";
 
+//SendRfp Page Layout
 export default function SendRfp() {
   const [vendors, setVendors] = useState([]);
   const [rfps, setRfps] = useState([]);
@@ -11,19 +12,28 @@ export default function SendRfp() {
   const [selectedRfp, setSelectedRfp] = useState(null);
   const [sending, setSending] = useState(false);
 
-  useEffect(() => { loadVendors(); loadRfps(); }, []);
+  // loaded all vendors and all created RFPs once when the page loads.
+  // this initializes the dropdown (RFP IDs) and vendor list for selection.
 
+    useEffect(() => { 
+      loadVendors(); 
+      loadRfps(); 
+    }, []);
+
+    //loadVendor function calls /vendor api
   const loadVendors = async () => {
     const res = await api.get("/vendors");
     setVendors(res.data);
   };
+    //loadRfps function calls /rfp api
 
   const loadRfps = async () => {
-    const res = await api.get("/rfp"); // we don't have list route in backend yet; but many people add one. If missing, create API to get RFPs.
-    // fallback: if backend doesn't expose GET /api/rfp, use created RFP from CreateRfp view. For now handle missing gracefully:
+    const res = await api.get("/rfp"); 
     if (res.status === 200) setRfps(res.data);
   };
 
+  // add or remove a vendor from the "selected" list when user checks/unchecks the card.
+  // we store selected vendors in an object for quick lookup by vendor ID.
   const toggleSelect = (vendor, checked) => {
     setSelected(prev => {
       const copy = { ...prev };
@@ -33,6 +43,8 @@ export default function SendRfp() {
     });
   };
 
+  // sends the selected RFP to all chosen vendors and validates that an RFP and at least one vendor are selected,
+// then calls the backend email API and resets the selection state.
   const doSend = async () => {
     if (!selectedRfp) return alert("Pick an RFP to send");
     const vendorIds = Object.keys(selected);

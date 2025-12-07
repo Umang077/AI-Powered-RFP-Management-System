@@ -6,6 +6,8 @@ import SendRfp from "./pages/SendRfp";
 import Proposals from "./pages/Proposals";
 import Compare from "./pages/Compare";
 
+ // Files being called here
+ 
 export default function App() {
   return (
     <div style={{ fontFamily: "Inter, Arial, sans-serif", padding: 20 }}>

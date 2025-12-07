@@ -1,4 +1,5 @@
 
+//Vendor Card Basic layout shown while creating vendor
 export default function VendorCard({ vendor, onDelete, onSelect, selected }) {
   return (
     <div className="card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

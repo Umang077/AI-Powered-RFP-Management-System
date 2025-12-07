@@ -6,6 +6,7 @@ import api from "../api/api";
 export default function CreateRfp() {
   const [rfp, setRfp] = useState(null);
 
+  //Button create RFP handle function calling /rfp/create api
   const handleCreate = async (text) => {
     const res = await api.post("/rfp/create", { text });
     setRfp(res.data);

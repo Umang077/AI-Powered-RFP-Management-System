@@ -4,9 +4,7 @@ import React, { useState } from "react";
 import api from "../api/api";
 import "./Compare.css"; 
 
-// Helper functions (could be moved to a utils file)
 const normalize = (parsed = {}) => {
-  // try multiple possible field names
   const totalCost = parsed.totalCost ?? parsed.total_price ?? parsed.total ?? parsed.totalCostUsd ?? null;
   const pricePerUnit = parsed.pricePerUnit ?? parsed.unitPrice ?? parsed.price ?? null;
   const deliveryDays =
@@ -132,8 +130,8 @@ export default function CompareTable() {
           <label style={{ fontSize: 13, marginRight: 6 }}>Sort by</label>
           <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
             <option value="score">Score (recommended)</option>
-            <option value="price">Price (low → high)</option>
-            <option value="delivery">Delivery (fast → slow)</option>
+            <option value="price">Price (low - high)</option>
+            <option value="delivery">Delivery (fast - slow)</option>
           </select>
         </div>
       </div>
